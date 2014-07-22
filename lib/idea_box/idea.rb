@@ -6,7 +6,7 @@ class Idea
               :rank,
               :id
 
-  def initialize(attributes)
+  def initialize(attributes = {})
     @title       = attributes["title"]
     @description = attributes["description"]
     @rank        = attributes["rank"] ||= 0

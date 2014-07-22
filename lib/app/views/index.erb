@@ -1,12 +1,16 @@
 <h1>IdeaBox</h1>
-<form action='/' method='POST'>
+
+ <%= erb :form, locals: {idea: idea }%>
+
+
+<!-- <form action='/' method='POST'>
   <p>
     Your Idea:
   </p>
   <input type='text' name='idea[title]' placeholder='Idea'/><br/>
   <textarea name='idea[description]' placeholder='Idea description...'></textarea><br/>
   <input type='submit'/>
-</form>
+</form> -->
 <h3>
   Existing Ideas
 </h3>
