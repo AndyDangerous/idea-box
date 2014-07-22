@@ -2,9 +2,22 @@
 ideas:
 - title: the best Idea
   description: This idea is the best
+  rank: 12
+  id: 0
 - title: new idea
   description: this idea is going to be great!
+  rank: 36
+  id: 1
 - title: another one
   description: You're UNSTOPPABLE
 - title: hidden idea
   description: Hidden?
+  rank: 1
+- title: idea 1
+  description: Moves up?
+- title: idea 2
+  description: Moves down?
+- title: can I make a new idea?
+  description: freal?
+  rank: 43
+  id: 6

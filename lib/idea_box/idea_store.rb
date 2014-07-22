@@ -14,7 +14,9 @@ class IdeaStore
   end
 
   def self.find(id)
-    Idea.new(find_raw_idea(id))
+    # This should be refactored
+    raw_idea = find_raw_idea(id)
+    Idea.new(raw_idea.merge("id" => id))
   end
 
   def self.find_raw_idea(id)
@@ -24,8 +26,8 @@ class IdeaStore
   end
 
   def self.all
-    raw_ideas.map do |data|
-      Idea.new(data)
+    raw_ideas.map.with_index do |data, i|
+      Idea.new(data.merge("id" => i))
     end
   end
 
