@@ -1,10 +1,12 @@
 require 'bundler'
+require 'haml'
 require 'idea_box'
 Bundler.require
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
+  set :public_folder, 'public'
 
   configure :development do
     register Sinatra::Reloader
@@ -20,6 +22,7 @@ class IdeaBoxApp < Sinatra::Base
 
   post '/' do
     IdeaBuilder.build(params[:idea])
+
     redirect '/'
   end
 
@@ -48,5 +51,11 @@ class IdeaBoxApp < Sinatra::Base
   get '/:tag' do |tag|
     ideas = IdeaStore.find_by_tag(tag)
     erb :tag, locals: { tag: tag, ideas: ideas }
+  end
+
+  helpers do
+    def img(name)
+      "<img src='/images/#{name}' alt='#{name}' />"
+    end
   end
 end

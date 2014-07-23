@@ -5,7 +5,8 @@ class Idea
               :description,
               :rank,
               :id,
-              :tags
+              :tags,
+              :image
 
   def initialize(attributes = {})
     @title       = attributes["title"]
@@ -13,6 +14,7 @@ class Idea
     @rank        = attributes["rank"] ||= 0
     @id          = attributes["id"]
     @tags        = attributes["tags"]
+    @image       = attributes["image"]
   end
 
   def <=>(other)
@@ -25,7 +27,8 @@ class Idea
       "description" => description,
       "rank"        => rank,
       "id"          => id,
-      "tags"        => tags
+      "tags"        => tags,
+      "image"       => image
     }
   end
 
