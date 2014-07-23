@@ -2,17 +2,8 @@
 
  <%= erb :form, locals: {idea: idea }%>
 
-
-<!-- <form action='/' method='POST'>
-  <p>
-    Your Idea:
-  </p>
-  <input type='text' name='idea[title]' placeholder='Idea'/><br/>
-  <textarea name='idea[description]' placeholder='Idea description...'></textarea><br/>
-  <input type='submit'/>
-</form> -->
 <h3>
-  Existing Ideas
+  Existing Ideas (<%= IdeaStore.db_array.length %> of them)
 </h3>
 <ul>
   <% ideas.each do |idea| %>
@@ -21,7 +12,8 @@
         <input type='submit' value='+'/>
       </form>
       <%= idea.title %><br>
-      <%= idea.description %>
+      <%= idea.description %><br>
+      <%= idea.tags %>
       <a href="/<%= idea.id %>/edit">Edit</a>
       <form action="/<%= idea.id %>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE">

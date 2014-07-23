@@ -4,13 +4,15 @@ class Idea
   attr_reader :title,
               :description,
               :rank,
-              :id
+              :id,
+              :tags
 
   def initialize(attributes = {})
     @title       = attributes["title"]
     @description = attributes["description"]
     @rank        = attributes["rank"] ||= 0
     @id          = attributes["id"]
+    @tags        = attributes["tags"]
   end
 
   def <=>(other)
@@ -22,8 +24,13 @@ class Idea
       "title"       => title,
       "description" => description,
       "rank"        => rank,
-      "id"          => id
+      "id"          => id,
+      "tags"        => tags
     }
+  end
+
+  def add_tag(tag)
+    tags << tag
   end
 
   def like!

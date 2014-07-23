@@ -1,2 +1,15 @@
 ---
-ideas: []
+ideas:
+- title: Idea 1
+  description: ''
+  tags: []
+  id: 0
+- title: idea 2
+  description: ''
+  tags: []
+  id: 1
+- title: idea 3
+  description: is the best!
+  rank: 1
+  id: 2
+  tags: ''

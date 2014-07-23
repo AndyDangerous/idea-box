@@ -38,12 +38,33 @@ class IdeaStore
   end
 
   def self.database
+    return @database if @database
+
     @database ||= YAML::Store.new('db/ideabox')
+    @database.transaction do
+      @database['ideas'] ||= []
+    end
+    @database
+  end
+
+  def self.size
+    size = 0
+    database.transaction do
+      size = database['ideas'].length
+    end
+    size
+  end
+
+  def self.db_array
+    array = []
+    database.transaction do
+      array = database['ideas']
+    end
+    array
   end
 
   def self.create(attributes)
     database.transaction do
-      database['ideas'] ||= []
       database['ideas'] << attributes
     end
   end
