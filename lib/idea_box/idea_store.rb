@@ -56,14 +56,6 @@ class IdeaStore
     all.length
   end
 
-  # def self.db_array
-  #   array = []
-  #   database.transaction do
-  #     array = database['ideas']
-  #   end
-  #   array
-  # end
-
   def self.create(attributes)
     database.transaction do
       database['ideas'] << attributes

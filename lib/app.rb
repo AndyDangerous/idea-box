@@ -26,6 +26,13 @@ class IdeaBoxApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/ip' do
+    ip_address = request.ip
+    "Your IP Address: #{ip_address}"
+    "Your Address is: #{ip_address.}"
+    "Your coordinates are: #{ip_address.}"
+  end
+
   delete '/:i/delete' do |i|
     IdeaStore.delete(i.to_i)
     redirect '/'

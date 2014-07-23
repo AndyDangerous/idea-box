@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.6.0)
+    geocoder (1.2.3)
     haml (4.0.5)
       tilt
     multi_json (1.10.1)
@@ -27,6 +28,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  geocoder
   haml
   sinatra
   sinatra-contrib
