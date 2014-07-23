@@ -7,18 +7,3 @@ class IdeaBuilder
     IdeaStore.create(idea)
   end
 end
-
-
-#
-#   def self.update(id, data)
-#     database.transaction do
-#       database['ideas'][id] = data
-#     end
-#   end
-#
-#
-# def self.create(attributes)
-#   database.transaction do
-#     database['ideas'] << attributes
-#   end
-# end

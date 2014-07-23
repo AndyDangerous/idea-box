@@ -8,8 +8,9 @@ ideas:
   description: ''
   tags: []
   id: 1
-- title: idea 3
-  description: is the best!
-  rank: 1
+- title: New Idea Yitle
+  description: This idea has a description!
+  tags:
+  - and
+  - tags
   id: 2
-  tags: ''
