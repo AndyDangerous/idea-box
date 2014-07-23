@@ -7,6 +7,12 @@ class IdeaStore
     end
   end
 
+  def self.find_by_tag(tag)
+    all.find_all do |idea|
+      idea.tags.include?(tag)
+    end
+  end
+
   def self.update(id, data)
     database.transaction do
       database['ideas'][id] = data
@@ -14,7 +20,6 @@ class IdeaStore
   end
 
   def self.find(id)
-    # This should be refactored
     raw_idea = find_raw_idea(id)
     Idea.new(raw_idea.merge("id" => id))
   end
@@ -48,20 +53,16 @@ class IdeaStore
   end
 
   def self.size
-    size = 0
-    database.transaction do
-      size = database['ideas'].length
-    end
-    size
+    all.length
   end
 
-  def self.db_array
-    array = []
-    database.transaction do
-      array = database['ideas']
-    end
-    array
-  end
+  # def self.db_array
+  #   array = []
+  #   database.transaction do
+  #     array = database['ideas']
+  #   end
+  #   array
+  # end
 
   def self.create(attributes)
     database.transaction do

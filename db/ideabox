@@ -14,3 +14,14 @@ ideas:
   - and
   - tags
   id: 2
+- title: tag tester
+  description: tests tag search
+  rank: 1
+  id: 3
+  tags:
+  - radical
+- title: adsgds
+  description: hhhfhhfjsh
+  tags:
+  - radical
+  id: 4
