@@ -1,7 +1,7 @@
 class IdeaBuilder
   def self.build(data)
     id         = IdeaStore.size
-    tags       = data[:tags].split
+    tags       = data[:tags].split(", ")
     date       = Time.new.to_s
 
     if data[:image]
