@@ -1,3 +1,5 @@
+<% Groupdate.time_zone = "Mountain Time (US & Canada)" %>
+
 <h2> Most Productive Days of the Week</h2>
 <%= line_chart IdeaStore.all.group_by_day_of_week{|i| i.date }.map{|k, v| [k, v.size] } %>
 
