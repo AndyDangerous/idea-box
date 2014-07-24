@@ -79,7 +79,7 @@ class IdeaBoxApp < Sinatra::Base
 
   helpers do
     def img(name)
-      "<img class='img-responsive' src='/images/#{name}' alt='#{name}''/>"
+      "<img class='img-responsive img-rounded' src='/images/#{name}' alt='#{name}''/>"
     end
   end
 end
