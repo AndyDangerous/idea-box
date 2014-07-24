@@ -1,26 +1,5 @@
 ---
 ideas:
-- title: t
-  description: d
-  rank: 5
-  id: 0
-  tags:
-  - c
-  image: cat.jpeg
-  date: '2014-07-24 00:18:03 -0600'
-- title: ''
-  description: ''
-  tags: []
-  id: 1
-  image: 
-  date: '2014-06-24 00:18:07 -0600'
-- title: ''
-  description: ''
-  rank: 9
-  id: 2
-  tags: []
-  image: 
-  date: '2014-06-24 04:18:09 -0600'
 - title: ''
   description: ''
   tags: []
@@ -29,27 +8,14 @@ ideas:
   date: '2014-07-24 04:20:10 -0600'
 - title: ''
   description: ''
-  rank: 1
-  id: 4
-  tags: []
-  image: 
-  date: '2014-07-24 04:36:13 -0600'
-- title: ''
-  description: ''
   tags: []
   id: 5
   image: 
   date: '2014-05-24 06:18:14 -0600'
-- title: ''
-  description: ''
-  tags: []
-  id: 6
-  image: 
-  date: '2014-05-24 07:48:14 -0600'
 - title: Go to the Moon
   description: Build a spaceship and go to the moon.
-  rank: 1
-  id: 7
+  rank: 4
+  id: 2
   tags:
   - moon
   - space
@@ -76,3 +42,11 @@ ideas:
   id: 8
   image: 
   date: '2014-07-24 08:58:29 -0600'
+- title: Moon
+  description: The moon is a specious lover, always diminished in the morning.
+  tags:
+  - moon
+  - deep-thoughts
+  id: 4
+  image: 
+  date: '2014-07-24 11:13:22 -0600'
