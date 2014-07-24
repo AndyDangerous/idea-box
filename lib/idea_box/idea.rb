@@ -6,7 +6,8 @@ class Idea
               :rank,
               :id,
               :tags,
-              :image
+              :image,
+              :date
 
   def initialize(attributes = {})
     @title       = attributes["title"]
@@ -15,6 +16,7 @@ class Idea
     @id          = attributes["id"]
     @tags        = attributes["tags"]
     @image       = attributes["image"]
+    @date        = attributes["date"]
   end
 
   def <=>(other)
@@ -28,7 +30,8 @@ class Idea
       "rank"        => rank,
       "id"          => id,
       "tags"        => tags,
-      "image"       => image
+      "image"       => image,
+      "date"        => date
     }
   end
 
@@ -38,5 +41,9 @@ class Idea
 
   def like!
     @rank += 1
+  end
+  
+  def dislike!
+    @rank -= 1
   end
 end

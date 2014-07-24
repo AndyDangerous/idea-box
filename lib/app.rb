@@ -26,10 +26,13 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/ip' do
-    ip_address = request.ip
-    "Your IP Address: #{ip_address}"
-    "Your Address is: #{ip_address}"
-    "Your coordinates are: #{ip_address}"
+    # ip_address = request.ip
+    request_path = request.env
+    # "Request.location: #{request.location}"
+    "request: #{request_path}"
+    # "Your IP Address: #{ip_address}"
+    # "Your Address is: #{ip_address}"
+    # "Your coordinates are: #{ip_address}"
   end
 
   delete '/delete/:id' do |id|
@@ -46,6 +49,10 @@ class IdeaBoxApp < Sinatra::Base
     IdeaStore.update(id.to_i, params[:idea])
     redirect '/'
   end
+  
+  get '/all' do
+    "#{IdeaStore.all}"
+  end
 
   post '/like/:id' do |id|
     idea = IdeaStore.find(id.to_i)
@@ -53,10 +60,21 @@ class IdeaBoxApp < Sinatra::Base
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
   end
+  
+  post '/dislike/:id' do |id|
+    idea = IdeaStore.find(id.to_i)
+    idea.dislike!
+    IdeaStore.update(id.to_i, idea.to_h)
+    redirect '/'
+  end
 
   get '/tag/:tag' do |tag|
     ideas = IdeaStore.find_by_tag(tag)
     erb :tag, locals: { tag: tag, ideas: ideas }
+  end
+  
+  get '/stats' do
+    erb :stats
   end
 
   helpers do

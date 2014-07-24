@@ -41,6 +41,12 @@ class IdeaStore
       db['ideas'] || []
     end
   end
+  
+  def self.weekly_stats
+    all.each do |idea|
+      
+    end
+  end
 
   def self.database
     return @database if @database
