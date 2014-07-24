@@ -4,20 +4,19 @@
   <% end %>
   <div class="form-group">
     <label for="Title">Title</label>
-    <input type='text' id='idea[title]' class="form-control" value="<%= idea.title %>" placeholder="title"/>
+    <input type='text' name='idea[title]' class="form-control" value="<%= idea.title %>" placeholder="title"/>
   </div>
   <div class="form-group">
     <label for="Description">Description</label>
-    <input type="textarea" class="form-control" id="idea[description]" value="<%= idea.description %>" placeholder="describe your idea"/>
+    <input type="textarea" class="form-control" name="idea[description]" value="<%= idea.description %>" placeholder="describe your idea"/>
   </div>
   <div class="form-group">
     <label for="picture">Picture</label>
-    <input type="file" id="idea[image]">
+    <input type="file" name="idea[image]">
   </div>
   <div class="form-group">
     <label for="tags">Tags</label>
-    <input type='text' id='idea[tags]' class="form-control" value="<%= idea.tags %>" placeholder="e.g. cats"/>
+    <input type='text' name='idea[tags]' class="form-control" value="<%= idea.tags %>" placeholder="e.g. cats"/>
   </div>
-
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
