@@ -22,19 +22,18 @@ class IdeaBoxApp < Sinatra::Base
 
   post '/' do
     IdeaBuilder.build(params[:idea])
-
     redirect '/'
   end
 
   get '/ip' do
     ip_address = request.ip
     "Your IP Address: #{ip_address}"
-    "Your Address is: #{ip_address.}"
-    "Your coordinates are: #{ip_address.}"
+    "Your Address is: #{ip_address}"
+    "Your coordinates are: #{ip_address}"
   end
 
-  delete '/:i/delete' do |i|
-    IdeaStore.delete(i.to_i)
+  delete '/delete/:id' do |id|
+    IdeaStore.delete(id.to_i)
     redirect '/'
   end
 
@@ -48,21 +47,21 @@ class IdeaBoxApp < Sinatra::Base
     redirect '/'
   end
 
-  post '/:id/like' do |id|
+  post '/like/:id' do |id|
     idea = IdeaStore.find(id.to_i)
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
   end
 
-  get '/:tag' do |tag|
+  get '/tag/:tag' do |tag|
     ideas = IdeaStore.find_by_tag(tag)
     erb :tag, locals: { tag: tag, ideas: ideas }
   end
 
   helpers do
     def img(name)
-      "<img src='/images/#{name}' alt='#{name}' />"
+      "<img class='img-responsive' src='/images/#{name}' alt='#{name}''/>"
     end
   end
 end

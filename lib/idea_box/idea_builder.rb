@@ -2,9 +2,13 @@ class IdeaBuilder
   def self.build(data)
     id         = IdeaStore.size
     tags       = data[:tags].split
-    image_name = data[:image][:filename]
 
-    save_image(data[:image])
+    if data[:image]
+      image_name = data[:image][:filename]
+      save_image(data[:image])
+    else
+      image_name = "no_image.png"
+    end
 
     data = data.merge("id" => id, "tags" => tags, "image" => image_name)
     IdeaStore.create(data)
