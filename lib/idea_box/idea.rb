@@ -42,7 +42,7 @@ class Idea
   def like!
     @rank += 1
   end
-  
+
   def dislike!
     @rank -= 1
   end

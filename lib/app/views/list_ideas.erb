@@ -1,47 +1,7 @@
 <% ideas.each do |idea| %>
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= img(idea.image) if idea.image %>
-      <div class="caption">
-        <h3><%= idea.title %></h3>
-        <p><%= idea.description %></p><br>
-          Tags:
-            <% idea.tags.each do |tag| %>
-            <a href="/tag/<%= tag %>"><%= tag %></a>
-            <% end %>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <span class="badge"><%= idea.rank %></span>
-            likes:
-            <div class='btn-group' >
-              <button class='btn btn-default' form="edit_idea_form" type='submit'>edit</button>
-              <button class='btn btn-default' form="delete_idea_form" type='submit'>delete</button>
-              <button form="idea_like" type='submit' class='btn btn-default'>like</button>
-              <button form="idea_dislike" type='submit' class='btn btn-default'>dislike</button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
-<form id="edit_idea_form" action="/<%= idea.id %>/edit" method="GET" style="display:none">
-  <input type='submit' value="edit">
-</form>
-
-<form id="delete_idea_form" action="/delete/<%= idea.id %>" method="POST" style="display:none">
-  <input type="hidden" name="_method" value="DELETE">
-</form>
-
-<form id="idea_like" action='/like/<%= idea.id %>' method="POST" class="form-inline">
-</form>
-
-
-<form id="idea_dislike" action='/dislike/<%= idea.id %>' method="POST" class="form-inline">
-</form>
+<%= erb :print_idea, locals: { idea: idea } %>
 
 
 <% end %>
