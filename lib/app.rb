@@ -74,7 +74,9 @@ class IdeaBoxApp < Sinatra::Base
   end
   
   get '/stats' do
-    erb :stats
+    weekly_stats = IdeaStats.week
+    daily_stats = IdeaStats.day
+    erb :stats, locals: { daily_stats: daily_stats, weekly_stats: weekly_stats }
   end
 
   helpers do
